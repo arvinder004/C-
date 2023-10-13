@@ -11,6 +11,12 @@ int main(){
 	
 	arr= (int *)calloc(n, sizeof(int));
 	
+	if(arr==NULL)
+   {
+      printf("Memory not allocated.");
+      return EXIT_FAILURE;
+   }
+	
 	for(int i=0; i<n; i++){
 		printf("enter %d number:",i+1);
 		scanf("%d",arr+i);
