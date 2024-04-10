@@ -1,4 +1,4 @@
-//FIND THE LAST OCCURENCE OF AN ELEMENT X IN A GIVEN ARRRAY
+//COUNT THE NUMBER OF OCCURENCES OF A PARTICULAR ELEMENT X
 
 #include<iostream>
 #include<vector>
@@ -22,23 +22,18 @@ int main()
     int target;
     cout << endl << "enter element: ";
     cin >> target;
-    int pos;
+    int pos = 0;
 
-    // for(int i=0; i<v.size(); i++)
-    // {
-    //     if(v[i] == target){
-    //         pos = i;
-    //     }
-    // }
-
-    for(int i=v.size(); i>0 ; i--){
+    for(int i=0; i<v.size(); i++)
+    {
         if(v[i] == target){
-            pos = i;
-            break;
+            pos += 1;
         }
     }
 
-    cout << target << " last occurence found at "<< pos+1 << endl;
+    
+
+    cout << target << " occured "<< pos << "times" << endl;
 
     return 0;
 }

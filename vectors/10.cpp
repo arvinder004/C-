@@ -1,8 +1,9 @@
-//FIND THE LAST OCCURENCE OF AN ELEMENT X IN A GIVEN ARRRAY
+//COUNT THE ELEMENTS GREATER THAN X
 
 #include<iostream>
 #include<vector>
 using namespace std;
+
 
 int main()
 {
@@ -19,26 +20,17 @@ int main()
     {
         cout << ele << " ";
     }
+    
     int target;
     cout << endl << "enter element: ";
     cin >> target;
-    int pos;
-
-    // for(int i=0; i<v.size(); i++)
-    // {
-    //     if(v[i] == target){
-    //         pos = i;
-    //     }
-    // }
-
+    
+    cout << "elements greater than "<< target<< ": ";
     for(int i=v.size(); i>0 ; i--){
-        if(v[i] == target){
-            pos = i;
-            break;
+        if(v[i] > target){
+            cout << v[i] << " ";
         }
     }
-
-    cout << target << " last occurence found at "<< pos+1 << endl;
 
     return 0;
 }
