@@ -4,6 +4,7 @@
 #include<string>
 #include<map>
 #include<unordered_map>
+#include<vector>
 
 using namespace std;
 
@@ -33,31 +34,34 @@ class conversion{
         }
 
         string IntToRoman(int num){
-            unordered_map<char,int>m;
-                m[1000]='M';
-                m[900]='CM';
-                m[500]='D';
-                m[100]='C';
-                m[90]='XC';
-                m[50]='L';
-                m[10]='X';
-                m[9]='IX';
-                m[5]='V';
-                m[1]='I';
+            vector<pair<int,string>>m{
+                {1000,"M"},
+                {900,"CM"},
+                {500,"D"},
+                {100,"C"},
+                {90,"XC"},
+                {50,"L"},
+                {10,"X"},
+                {9,"IX"},
+                {5,"V"},
+                {1,"I"}
+            };
 
             string roman = "";
 
             for(int i=0; i<m.size(); i++){
-                while(num >= m[i]){
-                    roman += m[i].
+                while(num >= m[i].first){
+                    roman += m[i].second;
+                    num -= m[i].first;
                 }
             }
+            return roman;
         }
 };
 
 int main(){
     cout<<"--------------ROMAN INTEGER CONVERSION--------------"<<endl;
-    cout<<"(please enter roman numerals in capital (I,V,X,L,C,D,M))"
+    cout<<"(please enter roman numerals in capital (I,V,X,L,C,D,M))"<<endl;
     cout<<"TO CONVERT ROMAN TO INTEGER PRESS 1"<<endl;
     cout<<"TO CONVERT INTEGER TO ROMAN PRESS 2"<<endl;
 
@@ -70,6 +74,13 @@ int main(){
         cin>>s;
         conversion c1;
         cout<<"INTEGER NUMBER : "<<c1.RomanToInt(s);
+    }
+    else if(val == 2){
+        int n;
+        cout<<"ENTER INTEGER NUMBER:"<<endl;
+        cin>>n;
+        conversion c1;
+        cout<<"ROMAN NUMERAL : "<<c1.IntToRoman(n);
     }
 
     return 0;
