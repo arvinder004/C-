@@ -1,45 +1,40 @@
-#include<stdio.h>
+#include<iostream>
+
 using namespace std;
 
-void swap(int a, int b)
-{
-    int temp = a;
-    a = b;
-    b = temp;
+void swapn(int *a, int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
-void selection_sort(int A[], int n)
-{
-    for (int i = 0; i < n - 1 : i++)
-    {
-        int min = A[i];
-        int loc = i;
-
-        for (int j = i + 1; j < n; j++)
-        {
-            if (min > A[j])
-            {
-                min = A[j];
-                loc = j;
-            }
+void selection_sort(int a[], int n){
+    for(int i=0; i<n-1; i++){
+        int min = i;
+        for(int j=i+1; j<i; j++){
+            if(a[j] < a[min])
+                min = j;
         }
-        swap(A[i], A[loc])
+        if(min != i)
+            swap(a[min], a[i]);
     }
 }
 
-int printA(int A, n)
-{
-    for (int i = 0; i <= n; i++)
-    {
-        printf(A[i]);
+int main(){
+    int a[] = {12,35,63,59,23,56,48,12,32,59,56,23};
+    int n = sizeof(a)/sizeof(a[0]);
+
+    cout<<"array before sorting"<<endl;
+    for(int i=0; i<n; i++){
+        cout<<a[i]<<"   ";
     }
+
+    selection_sort(a,n);
+
+    cout<<endl<<"array after sorting"<<endl;
+    for(int i=0; i<n; i++){
+        cout<<a[i]<<"   ";
+    }
+
     return 0;
-}
-
-int main()
-{
-    int A = {20, 40, 10, 50, 30};
-    int n = sizeof(A) / sizeof(A[0]);
-
-    printf("Array before sorting is:", printA(A, n))
 }
